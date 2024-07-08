@@ -21,7 +21,7 @@ library(ggpubr)
 # Add collaborators list
 
 options(spinner.color="#dc3545", spinner.color.background="#f4f6f9ff", spinner.size=2)
-tsize = 16 #textsize
+tsize = 15 #textsize
 ## Load data ---- 
 exptab = readRDS("data/exptab.rds")
 dfs = readRDS("data/dfs.rds")
@@ -174,14 +174,14 @@ ui <- bs4DashPage(
                                    )
                           ),
                           tabPanel("Rates of community changes",
-                                     column(width = 7, 
+                                     column(width = 9, 
                                            withSpinner(plotlyOutput("ratesPlot", height = "700px"), type = 8),
                                            tags$p("Each panel reflects both divergence of the warmed community from the origin control (dotted lines) and convergence towards the destination control (dashed lines). For divergence, the origin controls are set at zero as the reference community and the plot shows the divergence of warmed communities (dotted lines) and destination controls (solid line) from the origin controls. For convergence, the destination controls are set at zero and the plot shows the convergence of the warmed communities (dashed line) and destination controls (solid line) towards the destination controls. Distances between controls (solid line) represent the expected taxonomic distance if warmed communities fully converge (i.e., become identical to the destination community composition).", style = "text-align: justify; margin-top: 14px;")
                                            )
                                    
                           ),
                           tabPanel("Rates of species pool changes",
-                                     column(width = 9, 
+                                     column(width = 11, 
                                             withSpinner(plotlyOutput("spratesPlot", height = "700px"), type = 8),
                                             tags$p("Proportional differences in relative abundances of each species pool in warmed communities in comparison to origin controls (dotted lines) and destination controls (dashed lines) calculated from associated PRC axis. Positive values indicate higher relative abundances in warmed communities, negative values indicate lower relative abundances in warmed communities in comparison to controls.", style = "text-align: justify; margin-top: 14px;")
                                      )
@@ -194,7 +194,7 @@ ui <- bs4DashPage(
                                             selectInput("selectedType", "Choose response variable:", choices = unique(pvar$type)),
                                             selectInput("selectedVariable", "Choose explanatory variable", choices = unique(pvar$variables), multiple = TRUE)
                                      ),
-                                     column(width = 9, 
+                                     column(width = 11, 
                                             plotlyOutput("expvarPlot",height = "700px") # Placeholder for the plot output
                                      )
                                    )
