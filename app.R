@@ -255,7 +255,8 @@ server <- function(input, output, session) {
   
   
   output$map <- renderLeaflet({
-    leaflet() %>%  addProviderTiles(providers$Stadia.StamenTerrain) # Initialize map with base tiles
+    leaflet() %>%
+      addProviderTiles(providers$OpenStreetMap)
   })
   
   observe({
